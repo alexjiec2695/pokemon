@@ -13,12 +13,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { LoginComponent } from './pages/login/login.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
+import { BasicdataComponent } from './pages/basicdata/basicdata.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    BasicdataComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +41,16 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    NzFormModule,
+    ReactiveFormsModule,
+    NzInputModule,
+    NzButtonModule,
+    NzMessageModule
   ],
   providers: [
+    AuthService,
+    AuthGuard,
     { provide: NZ_I18N, useValue: en_US }
   ],
   bootstrap: [AppComponent]

@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isLogin = false
   isCollapsed = false;
+
+  constructor(){
+    if (localStorage["login"]){
+        this.isLogin = true
+    }
+  }
+
+  Close(){
+    localStorage.removeItem("login")
+    window.location.reload()
+  }
+
 }
