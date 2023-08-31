@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { users } from './model/users';
 import { Observable } from 'rxjs';
+import { detail, pokemonDetail, pokemonItem } from './model/pokemons';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,18 @@ export class ServicesService {
   
   createUser(user: users): Observable<HttpResponse<any>> {
     return this.http.post<any>(`${this.urlBase}/Users`, user,
+      { headers: this.httpOptions.headers, observe: 'response' }
+    )
+  }
+
+  getPokemons(): Observable<HttpResponse<pokemonItem[]>> {
+    return this.http.get<pokemonItem[]>(`${this.urlBase}/pokemons`,
+      { observe: 'response' }
+    )
+  }
+
+  getPokemon(data: detail): Observable<HttpResponse<pokemonDetail>> {
+    return this.http.post<pokemonDetail>(`${this.urlBase}/pokemon`, data,
       { headers: this.httpOptions.headers, observe: 'response' }
     )
   }

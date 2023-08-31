@@ -23,6 +23,10 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { BasicdataComponent } from './pages/basicdata/basicdata.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { PokemonsComponent } from './pages/pokemons/pokemons.component';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(en);
 
@@ -31,7 +35,8 @@ registerLocaleData(en);
     AppComponent,
     LoginComponent,
     BasicdataComponent,
-    RegisterComponent
+    RegisterComponent,
+    PokemonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,10 @@ registerLocaleData(en);
     ReactiveFormsModule,
     NzInputModule,
     NzButtonModule,
-    NzMessageModule
+    NzMessageModule,
+    NzTableModule,
+    NzDividerModule,
+    NzModalModule
   ],
   providers: [
     AuthService,
