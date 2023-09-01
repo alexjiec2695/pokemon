@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  URL: "http://127.0.0.1:3000"
+  //URL: "http://127.0.0.1:3000"
+  URL: "http://54.196.25.20:3000"
 };
 
 
